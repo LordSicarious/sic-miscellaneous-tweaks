@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+  <!-- Ideology Headgear Adjustments -->
+  <Operation Class="PatchOperationSequence" MayRequire="Ludeon.RimWorld.Ideology">
+    <operations>
+    <!-- Headwraps should be decent for heat insulation, but shouldn't have extra armour. -->
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Apparel_Broadwrap"]/statBases/StuffEffectMultiplierArmor</xpath>
+        <value>
+          <StuffEffectMultiplierArmor>0.2</StuffEffectMultiplierArmor>
+        </value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Apparel_Headwrap"]/statBases/StuffEffectMultiplierInsulation_Heat</xpath>
+        <value>
+          <StuffEffectMultiplierInsulation_Heat>0.3</StuffEffectMultiplierInsulation_Heat>
+        </value>
+      </li>
+    <!-- Broadwraps are classic desert wear, they should have great heat insulation, but they shouldn't have extra armour. -->
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Apparel_Broadwrap"]/statBases/StuffEffectMultiplierArmor</xpath>
+        <value>
+          <StuffEffectMultiplierArmor>0.2</StuffEffectMultiplierArmor>
+        </value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Apparel_Broadwrap"]/statBases/StuffEffectMultiplierInsulation_Heat</xpath>
+        <value>
+          <StuffEffectMultiplierInsulation_Heat>0.5</StuffEffectMultiplierInsulation_Heat>
+        </value>
+      </li>
+    <!-- Visage Masks should be much more expensive, since they cover more than War Masks. -->
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Apparel_VisageMask"]/costStuffCount</xpath>
+        <value>
+          <costStuffCount>30</costStuffCount>
+        </value>
+      </li>
+    <!-- Slicecaps should have decent armor, since they're actually made of hard materials. -->
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Apparel_Slicecap"]/statBases/StuffEffectMultiplierArmor</xpath>
+        <value>
+          <StuffEffectMultiplierArmor>0.3</StuffEffectMultiplierArmor>
+        </value>
+      </li>
+    <!-- Slave Collars should offer a small amount of neck armor, but not much. -->
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Apparel_Collar"]/statBases/StuffEffectMultiplierArmor</xpath>
+        <value>
+          <StuffEffectMultiplierArmor>0.05</StuffEffectMultiplierArmor>
+        </value>
+      </li>
+    <!-- Authority Caps should have better insulation - they do have a brim, if not a big one. -->
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Apparel_AuthorityCap"]/statBases/StuffEffectMultiplierInsulation_Heat</xpath>
+        <value>
+          <StuffEffectMultiplierInsulation_Heat>0.3</StuffEffectMultiplierInsulation_Heat>
+        </value>
+      </li>
+    <!-- Tailcaps are too similar to Tuques, so make them more expensive in return for above average armour and durability. -->
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Apparel_Tailcap"]/costStuffCount</xpath>
+        <value>
+          <costStuffCount>35</costStuffCount>
+        </value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Apparel_Tailcap"]/statBases/MaxHitPoints</xpath>
+        <value>
+          <MaxHitPoints>100</MaxHitPoints>
+        </value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Apparel_Tailcap"]/statBases/StuffEffectMultiplierArmor</xpath>
+        <value>
+          <StuffEffectMultiplierArmor>0.25</StuffEffectMultiplierArmor>
+        </value>
+      </li>
+    <!-- Shadecones should be substantively different from Cowboy Hats - cheaper, lower weight, less protective. -->
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Apparel_Shadecone"]/costStuffCount</xpath>
+        <value>
+          <costStuffCount>20</costStuffCount>
+        </value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Apparel_Shadecone"]/statBases/Mass</xpath>
+        <value>
+          <Mass>0.10</Mass>
+        </value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Apparel_Shadecone"]/statBases/StuffEffectMultiplierArmor</xpath>
+        <value>
+          <StuffEffectMultiplierArmor>0.15</StuffEffectMultiplierArmor>
+        </value>
+      </li>
+    <!-- Flophats should be a little different from Tuques. -->
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Apparel_Flophat"]/costStuffCount</xpath>
+        <value>
+          <costStuffCount>25</costStuffCount>
+        </value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Apparel_Flophat"]/statBases/StuffEffectMultiplierInsulation_Cold</xpath>
+        <value>
+          <StuffEffectMultiplierInsulation_Cold>0.4</StuffEffectMultiplierInsulation_Cold>
+        </value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Apparel_Flophat"]/statBases/StuffEffectMultiplierInsulation_Heat</xpath>
+        <value>
+          <StuffEffectMultiplierInsulation_Heat>0.2</StuffEffectMultiplierInsulation_Heat>
+        </value>
+      </li>
+    </operations>
+  </Operation>
+
+  <!-- Ideology General Apparel Adjustments -->
+  <Operation Class="PatchOperationSequence" MayRequire="Ludeon.RimWorld.Ideology">
+    <operations>
+    <!-- Slave Body Strap clearly shouldn't be Outer layer, it should be middle instead. Also, no insulation. -->
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Apparel_BodyStrap"]/apparel/layers</xpath>
+         <value>
+            <layers>
+              <li>Middle</li>
+            </layers>
+         </value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Apparel_BodyStrap"]/statBases/StuffEffectMultiplierInsulation_Cold</xpath>
+        <value>
+          <StuffEffectMultiplierInsulation_Cold>0.00</StuffEffectMultiplierInsulation_Cold>
+        </value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Apparel_BodyStrap"]/statBases/StuffEffectMultiplierInsulation_Heat</xpath>
+        <value>
+          <StuffEffectMultiplierInsulation_Heat>0.00</StuffEffectMultiplierInsulation_Heat>
+        </value>
+      </li>
+    <!-- Burkas should have great insulation, they're made for desert dwelling. Should cost more fabric though. -->
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Apparel_Burka"]/costStuffCount</xpath>
+        <value>
+          <costStuffCount>80</costStuffCount>
+        </value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Apparel_Burka"]/statBases/StuffEffectMultiplierInsulation_Cold</xpath>
+        <value>
+          <StuffEffectMultiplierInsulation_Cold>0.5</StuffEffectMultiplierInsulation_Cold>
+        </value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Apparel_Burka"]/statBases/StuffEffectMultiplierInsulation_Heat</xpath>
+        <value>
+          <StuffEffectMultiplierInsulation_Heat>0.95</StuffEffectMultiplierInsulation_Heat>
+        </value>
+      </li>
+    <!-- Robes should have better insulation than jackets, but only a little. -->
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Apparel_Robe"]/statBases/StuffEffectMultiplierInsulation_Cold</xpath>
+        <value>
+          <StuffEffectMultiplierInsulation_Cold>0.9</StuffEffectMultiplierInsulation_Cold>
+        </value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Apparel_Robe"]/statBases/StuffEffectMultiplierInsulation_Heat</xpath>
+        <value>
+          <StuffEffectMultiplierInsulation_Heat>0.4</StuffEffectMultiplierInsulation_Heat>
+        </value>
+      </li>
+    <!-- Why do Blindfolds give so much cold insulation? Why do they cost as much as an actual hat? Why can't they be leather?-->
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Apparel_Blindfold"]/costStuffCount</xpath>
+        <value>
+          <costStuffCount>15</costStuffCount>
+        </value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Apparel_Blindfold"]/statBases/StuffEffectMultiplierInsulation_Cold</xpath>
+        <value>
+          <StuffEffectMultiplierInsulation_Cold>0.07</StuffEffectMultiplierInsulation_Cold>
+        </value>
+      </li>
+    </operations>
+  </Operation>
+</Patch>

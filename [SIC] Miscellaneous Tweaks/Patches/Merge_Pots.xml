@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <!-- Merge Bonsai Pots into regular Flower Pots -->
+    <Operation Class="PatchOperationSequence">
+    <operations>
+        <!-- Replaces DecorativeTree sowTags with just Decorative so they can be planted in regular pots. -->
+        <li Class="PatchOperationAdd" MayRequire="Ludeon.RimWorld.Ideology">
+        <xpath>/Defs/ThingDef/plant/sowTags [li="DecorativeTree"]</xpath>
+        <value><li>Decorative</li></value>
+        </li>
+        <!-- Removes the "Must be Wild to Sow" limitation from decorative trees. -->
+        <li Class="PatchOperationAdd" MayRequire="Ludeon.RimWorld.Ideology">
+        <xpath>/Defs/ThingDef/plant[sowTags/li="DecorativeTree"]</xpath>
+        <value><mustBeWildToSow Inherit="False"/></value>
+        </li>
+        <!-- Slightly shrinks the draw size of Bonsai trees so they render properly. -->
+        <li Class="PatchOperationAdd" MayRequire="Ludeon.RimWorld.Ideology">
+        <xpath>/Defs/ThingDef [defName="Plant_TreeBonsai"]/graphicData</xpath>
+        <value>
+            <drawSize>(0.7,0.7)</drawSize>
+        </value>
+        </li>
+        <!-- Remove Bonsai pots references from the game as much as possible without breaking compatability. -->
+        <li Class="PatchOperationRemove" MayRequire="Ludeon.RimWorld.Ideology">
+            <xpath>/Defs/ThingDef [defName="PlantPot_Bonsai"]/*[name()="researchPrerequisites" or
+                                                                name()="designationHotKey" or
+                                                                name()="designationCategory"]</xpath>
+        </li>
+        <!-- Make them non-buildable -->
+        <li Class="PatchOperationAttributeSet" MayRequire="Ludeon.RimWorld.Ideology">
+            <xpath>/Defs/ThingDef [defName="PlantPot_Bonsai"]</xpath>
+            <attribute>ParentName</attribute>
+            <value>BuildingBase</value>
+        </li>
+        <!-- Add quality comp back in for compatability -->
+        <li Class="PatchOperationAdd" MayRequire="Ludeon.RimWorld.Ideology">
+            <xpath>/Defs/ThingDef [defName="PlantPot_Bonsai"]/comps</xpath>
+            <value>
+            <li><compClass>CompQuality</compClass></li>
+            </value>
+        </li>
+    </operations>
+    </Operation>
+</Patch>

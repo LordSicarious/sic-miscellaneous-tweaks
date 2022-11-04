@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Adds LightBall dancing as recreation -->
+<Defs>
+  <JoyGiverDef>
+    <defName>Dance_LightBall</defName>
+    <giverClass>JoyGiver_WatchBuilding</giverClass>
+    <baseChance>2.5</baseChance>
+    <thingDefs>
+      <li>LightBall</li>
+    </thingDefs>
+    <jobDef>Dance_LightBall</jobDef>
+    <desireSit>false</desireSit>
+    <joyKind>Social</joyKind>
+  </JoyGiverDef>
+
+  <JobDef>
+    <defName>Dance_LightBall</defName>
+    <driverClass>JobDriver_Dance</driverClass>
+    <reportString>dancing.</reportString>
+    <joyDuration>4000</joyDuration>
+    <joyMaxParticipants>12</joyMaxParticipants>
+    <joyKind>Social</joyKind>
+    <taleOnCompletion>Danced</taleOnCompletion>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+  <TaleDef>
+    <defName>Danced</defName>
+    <label>danced</label>
+    <taleClass>Tale_SinglePawnAndDef</taleClass>
+    <type>Volatile</type>
+    <defSymbol>OBJECT</defSymbol>
+    <baseInterest>0.5</baseInterest>
+    <rulePack>
+      <rulesStrings>
+        <li>tale_noun->[PAWN_nameDef] dancing at a [OBJECT_label]</li>
+        <li>tale_noun->[PAWN_nameDef] gyrating around a [OBJECT_label]</li>
+        <li>tale_noun->[PAWN_nameDef] waving [PAWN_possessive] arms at a [OBJECT_label]</li>
+        <li>image->[PAWN_nameFull] writhing erratically, [circumstance_group]</li>
+        <li>image->[PAWN_nameFull] illuminated by the [OBJECT_label], [circumstance_group]</li>
+        <li>image->[PAWN_nameFull] jumping up and down next to the [OBJECT_label], [circumstance_group]</li>
+        <li>image->[PAWN_nameFull] letting [PAWN_possessive] hair down near a [OBJECT_label], [circumstance_group]</li>
+        <li>circumstance_phrase->bursting with energy</li>
+        <li>circumstance_phrase->[PAWN_possessive] body limber and sweaty</li>
+        <li>circumstance_phrase->working [PAWN_possessive] body</li>
+        <li>circumstance_phrase->showing their [AdjectiveFriendly] side</li>
+        <li>desc_sentence->The background is bathed in [Color] light.</li>
+        <li>desc_sentence->In the distance, a [Community] is visible.</li>
+        <li>desc_sentence->In the distance, a [TerrainFeature] is visible.</li>
+        <li>desc_sentence->[Quantity_adjphrase] [PersonJob]s look on in awe.</li>
+        <li>desc_sentence->[Quantity_adjphrase] [Animal]s watch curiously nearby.</li>
+        <li>desc_sentence->[PAWN_nameDef] is glowing with a [Color] aura.</li>
+        <li>desc_sentence->[PAWN_nameDef]'s features are exaggerated.</li>
+        <li>desc_sentence->[PAWN_nameDef] towers above the crowd.</li>
+        <li>desc_sentence->[Quantity_adjphrase] [PersonJob]s echo [PAWN_possessive] moves.</li>
+      </rulesStrings>
+    </rulePack>
+  </TaleDef>
+</Defs>

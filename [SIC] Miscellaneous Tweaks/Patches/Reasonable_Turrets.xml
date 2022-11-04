@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+  <Operation Class="PatchOperationSequence">
+    <operations>
+
+<!-- Turrets are reflavoured so that their "fuel" is actually the ammunition they're shooting. -->
+
+<!-- Mini Turret: higher capacity, consumes 1 steel per shot (3 per volley), good for 50 volleys before it needs replacing -->
+
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Turret_MiniTurret"]/description</xpath>
+        <value><description>A portable automatic turret. Shoots solid steel bullets in short bursts, which require occasional reloading. May explode when damaged. Its dumb AI brain can't be directly controlled, so beware of friendly fire.</description></value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Turret_MiniTurret"]/comps/li [@Class="CompProperties_Refuelable"]/fuelLabel</xpath>
+        <value><fuelLabel>Shots until rearm</fuelLabel></value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Turret_MiniTurret"]/comps/li [@Class="CompProperties_Refuelable"]/fuelGizmoLabel</xpath>
+        <value><fuelGizmoLabel>Steel bullets</fuelGizmoLabel></value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Turret_MiniTurret"]/comps/li [@Class="CompProperties_Refuelable"]/outOfFuelMessage</xpath>
+        <value><outOfFuelMessage>Cannot shoot: Out of bullets</outOfFuelMessage></value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Turret_MiniTurret"]/comps/li [@Class="CompProperties_Refuelable"]/fuelCapacity</xpath>
+        <value><fuelCapacity>150</fuelCapacity></value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Turret_MiniTurret"]/comps/li [@Class="CompProperties_Refuelable"]/fuelMultiplier</xpath>
+        <value><fuelMultiplier>1.0</fuelMultiplier></value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Gun_MiniTurret"]/verbs/li/burstShotCount</xpath>
+        <value><burstShotCount>3</burstShotCount></value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Gun_MiniTurret"]/verbs/li/consumeFuelPerShot</xpath>
+        <value><consumeFuelPerShot>3</consumeFuelPerShot></value>
+      </li>
+
+<!-- Auto-Cannon Concept: slightly longer range, more accurate, more damage, add stopping power consumes more steel per shot -->
+
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Turret_Autocannon"]/description</xpath>
+        <value><description>A heavy automatic turret. Its heavy-caliber steel slugs do heavy damage over significant ranges, but consumes large amounts of steel in operation. It cannot fire at close-up targets, and may explode when damaged.</description></value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Turret_Autocannon"]/comps/li [@Class="CompProperties_Refuelable"]/fuelLabel</xpath>
+        <value><fuelLabel>Shots until rearm</fuelLabel></value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Turret_Autocannon"]/comps/li [@Class="CompProperties_Refuelable"]/fuelGizmoLabel</xpath>
+        <value><fuelGizmoLabel>Steel slugs</fuelGizmoLabel></value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Turret_Autocannon"]/comps/li [@Class="CompProperties_Refuelable"]/outOfFuelMessage</xpath>
+        <value><outOfFuelMessage>Cannot shoot: Out of slugs</outOfFuelMessage></value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Turret_Autocannon"]/comps/li [@Class="CompProperties_Refuelable"]/fuelCapacity</xpath>
+        <value><fuelCapacity>100</fuelCapacity></value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Turret_Autocannon"]/comps/li [@Class="CompProperties_Refuelable"]/fuelMultiplier</xpath>
+        <value><fuelMultiplier>0.5</fuelMultiplier></value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Turret_Autocannon"]/building/turretBurstCooldownTime</xpath>
+        <value><turretBurstCooldownTime>2.5</turretBurstCooldownTime></value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Bullet_AutocannonTurret"]/label</xpath>
+        <value><label>autocannon slug</label></value>
+      </li>
+      <li Class="PatchOperationAdd">
+        <xpath>/Defs/ThingDef [defName="Bullet_AutocannonTurret"]/projectile</xpath>
+        <value><stoppingPower>2.5</stoppingPower></value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Bullet_AutocannonTurret"]/projectile/speed</xpath>
+        <value><speed>120</speed></value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Gun_AutocannonTurret"]/statBases</xpath>
+        <value><statBases>
+          <AccuracyTouch>0.28</AccuracyTouch>
+          <AccuracyShort>0.85</AccuracyShort>
+          <AccuracyMedium>0.72</AccuracyMedium>
+          <AccuracyLong>0.64</AccuracyLong>
+          <RangedWeapon_Cooldown>2.5</RangedWeapon_Cooldown>
+          <DeteriorationRate>0</DeteriorationRate>
+          <Mass>40</Mass>
+          <Flammability>0</Flammability>
+        </statBases></value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Gun_AutocannonTurret"]/verbs/li/minRange</xpath>
+        <value><minRange>7.9</minRange></value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Gun_AutocannonTurret"]/verbs/li/range</xpath>
+        <value><range>34.9</range></value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Gun_AutocannonTurret"]/verbs/li/burstShotCount</xpath>
+        <value><burstShotCount>5</burstShotCount></value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Gun_AutocannonTurret"]/verbs/li/consumeFuelPerShot</xpath>
+        <value><consumeFuelPerShot>5</consumeFuelPerShot></value>
+      </li>
+
+<!-- Uranium Slug Turret: much longer range, more accurate, more damage, more stopping power, consumes more uranium -->
+
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Turret_Sniper"]/description</xpath>
+        <value><description>A heavy automatic turret. Its heavy-caliber slugs do heavy damage over significant ranges, but use significant amounts of steel in operation. It cannot fire at close-up targets, and may explode when damaged.</description></value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Turret_Sniper"]/comps/li [@Class="CompProperties_Refuelable"]/fuelCapacity</xpath>
+        <value><fuelCapacity>20</fuelCapacity></value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Turret_Sniper"]/comps/li [@Class="CompProperties_Refuelable"]/fuelMultiplier</xpath>
+        <value><fuelMultiplier>0.20</fuelMultiplier></value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Turret_Sniper"]/building/turretBurstCooldownTime</xpath>
+        <value><turretBurstCooldownTime>3.5</turretBurstCooldownTime></value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Bullet_TurretSniper"]/projectile/damageAmountBase</xpath>
+        <value><damageAmountBase>75</damageAmountBase></value>
+      </li>
+      <li Class="PatchOperationAdd">
+        <xpath>/Defs/ThingDef [defName="Bullet_TurretSniper"]/projectile</xpath>
+        <value><stoppingPower>4.5</stoppingPower></value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Bullet_TurretSniper"]/projectile/speed</xpath>
+        <value><speed>220</speed></value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Gun_TurretSniper"]/statBases</xpath>
+        <value><statBases>
+          <AccuracyTouch>0.28</AccuracyTouch>
+          <AccuracyShort>0.75</AccuracyShort>
+          <AccuracyMedium>0.90</AccuracyMedium>
+          <AccuracyLong>0.95</AccuracyLong>
+          <RangedWeapon_Cooldown>3.5</RangedWeapon_Cooldown>
+          <DeteriorationRate>0</DeteriorationRate>
+          <Mass>40</Mass>
+          <Flammability>0</Flammability>
+        </statBases></value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Gun_TurretSniper"]/verbs/li/warmupTime</xpath>
+        <value><warmupTime>0.5</warmupTime></value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Gun_TurretSniper"]/verbs/li/minRange</xpath>
+        <value><minRange>9.9</minRange></value>
+      </li>
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Gun_TurretSniper"]/verbs/li/range</xpath>
+        <value><range>49.9</range></value>
+      </li>
+    </operations>
+  </Operation>
+</Patch>

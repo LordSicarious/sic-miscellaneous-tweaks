@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Enables Drums, LightBalls and Loudspeakers to be used for Recreation -->
+<Patch>
+  <Operation Class="PatchOperationSequence">
+    <operations>
+      <li Class="PatchOperationReplace" MayRequire="Ludeon.RimWorld.Ideology">
+        <xpath>/Defs/ThingDef [defName="Drum" or defName="LightBall" or defName="Loudspeaker"]/designationCategory/text()</xpath>
+        <value>Joy</value>
+      </li>
+      <li Class="PatchOperationAdd" MayRequire="Ludeon.RimWorld.Ideology">
+        <xpath>/Defs/ThingDef [defName="Drum" or defName="LightBall" or defName="Loudspeaker"]</xpath>
+        <value><uiOrder>100000</uiOrder></value>
+      </li>
+
+      <!-- Drums can be used as a musical instrument -->
+      <li Class="PatchOperationAdd" MayRequire="Ludeon.RimWorld.Ideology">
+        <xpath>/Defs/ThingDef [defName="Drum"]</xpath>
+        <value>
+          <soundPlayInstrument>Drum_Music_1</soundPlayInstrument>
+        </value>
+      </li>
+      <li Class="PatchOperationAdd" MayRequire="Ludeon.RimWorld.Ideology">
+        <xpath>/Defs/ThingDef [defName="Drum"]/statBases</xpath>
+        <value><JoyGainFactor>1</JoyGainFactor></value>
+      </li>
+      <li Class="PatchOperationAdd" MayRequire="Ludeon.RimWorld.Ideology">
+        <xpath>/Defs/JoyGiverDef [defName="Play_MusicalInstrument"]/thingDefs</xpath>
+        <value><li>Drum</li></value>
+      </li>
+
+      <!-- LightBalls can be used for "Dance" recreation, of the social interaction joyKind -->
+
+      <!-- Loudspeakers act as a facility for TVs and LightBalls -->
+      <li Class="PatchOperationRemove" MayRequire="Ludeon.RimWorld.Ideology" >
+        <xpath>/Defs/ThingDef [defName="Loudspeaker"]/comps/li/showPowerNeededIfOff</xpath>
+      </li>
+      <li Class="PatchOperationAdd" MayRequire="Ludeon.RimWorld.Ideology" >
+        <xpath>/Defs/ThingDef [defName="Loudspeaker"]</xpath>
+        <value>
+          <placeWorkers>
+            <li>PlaceWorker_ShowFacilitiesConnections</li>
+          </placeWorkers>
+        </value>
+      </li>
+      <li Class="PatchOperationAdd" MayRequire="Ludeon.RimWorld.Ideology" >
+        <xpath>/Defs/ThingDef [defName="Loudspeaker"]/comps</xpath>
+        <value>
+          <li Class="CompProperties_Flickable"/>
+          <li Class="CompProperties_Facility">
+            <statOffsets>
+              <JoyGainFactor>0.05</JoyGainFactor>
+            </statOffsets>
+            <maxSimultaneous>6</maxSimultaneous>
+            <maxDistance>10</maxDistance>
+          </li>
+        </value>
+      </li>
+      <!-- Modify Televisions to have Loudspeakers as associated buildings -->
+      <li Class="PatchOperationAdd" MayRequire="Ludeon.RimWorld.Ideology" >
+        <xpath>/Defs/ThingDef [building/joyKind="Television"]/placeWorkers</xpath>
+        <value>
+          <li>PlaceWorker_ShowFacilitiesConnections</li>
+        </value>
+      </li>
+      <li Class="PatchOperationAdd" MayRequire="Ludeon.RimWorld.Ideology" >
+        <xpath>/Defs/ThingDef [building/joyKind="Television"]/building</xpath>
+        <value>
+          <relatedBuildCommands>
+            <li MayRequire="Ludeon.RimWorld.Ideology">Loudspeaker</li>
+          </relatedBuildCommands>
+        </value>
+      </li>
+      <li Class="PatchOperationAdd" MayRequire="Ludeon.RimWorld.Ideology" >
+        <xpath>/Defs/ThingDef [building/joyKind="Television"]/comps</xpath>
+        <value>
+          <li Class="CompProperties_AffectedByFacilities">
+            <linkableFacilities>
+              <li MayRequire="Ludeon.RimWorld.Ideology">Loudspeaker</li>
+            </linkableFacilities>
+          </li>
+        </value>
+      </li>
+    </operations>
+  </Operation>
+</Patch>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+  <!-- Ideology Seating Adjustments -->
+  <Operation Class="PatchOperationSequence" MayRequire="Ludeon.RimWorld.Ideology">
+    <operations>
+      <!-- Pews are non-flammable, so only receive a minor buff to 15 beauty (5/tile). -->
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="Pew"]/statBases/Beauty</xpath>
+        <value>
+          <Beauty>15</Beauty>
+        </value>
+      </li>
+      <!-- Kneel Sheets are more resource/work/inspiration efficient, but otherwise directly comparable to Kneel Pillows, so receive a more substantial buff to 25 beauty (6.25/tile). -->
+      <li Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef [defName="KneelSheet"]/statBases/Beauty</xpath>
+        <value>
+          <Beauty>25</Beauty>
+        </value>
+      </li>
+    </operations>
+  </Operation>
+</Patch>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+  <!-- Ideology Headgear Adjustments -->
+  <Operation Class="PatchOperationSequence">
+    <operations>
+    <!-- Metal Tiles should require Smithing and add a little cleanliness. Also increase work required though. -->
+      <li Class="PatchOperationAdd" MayRequire="Ludeon.RimWorld.Ideology">
+        <xpath>/Defs/TerrainDef [costList/Steel="12" and statBases/StyleDominance="1"]</xpath>
+        <value>
+          <researchPrerequisites>
+            <li>Smithing</li>
+          </researchPrerequisites>
+        </value>
+      </li>
+      <li Class="PatchOperationAdd" MayRequire="Ludeon.RimWorld.Ideology">
+        <xpath>/Defs/TerrainDef [costList/Steel="12" and statBases/StyleDominance="1"]/statBases</xpath>
+        <value>
+          <Cleanliness>0.2</Cleanliness>
+        </value>
+      </li>
+      <li Class="PatchOperationReplace" MayRequire="Ludeon.RimWorld.Ideology">
+        <xpath>/Defs/TerrainDef [costList/Steel="12" and statBases/StyleDominance="1"]/statBases/WorkToBuild/text()</xpath>
+        <value>6000</value>
+      </li>
+      <!-- Also make stuffable floor coverings paintable -->
+      <li Class="PatchOperationAdd" MayRequire="Ludeon.RimWorld.Ideology">
+        <success>Always</success>
+        <xpath>/Defs/ThingDef [stuffCategories and starts-with(@ParentName,"BuildingFloorCovering")]/building</xpath>
+        <value><paintable>true</paintable></value>
+      </li>
+      <li Class="PatchOperationAdd" MayRequire="Ludeon.RimWorld.Ideology">
+        <xpath>/Defs/ThingDef [stuffCategories and starts-with(@ParentName,"BuildingFloorCovering") and not(building)]</xpath>
+        <value><building><paintable>true</paintable></building></value>
+      </li>
+    </operations>
+  </Operation>
+</Patch>

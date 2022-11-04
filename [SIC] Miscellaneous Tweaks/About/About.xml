@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>[SIC] Miscellaneous Tweaks</name>
+	<author>Sicarious</author>
+	<supportedVersions>
+		<li>1.3</li>
+		<li>1.4</li>
+	</supportedVersions>
+	<packageId>SIC.Misc.Tweaks</packageId>
+	<description> Incorporates a variety of small patches that address balance issues, weird design choices and other bugbears. Includes:
+ - Wield Without Violence: Non-violent pawns can equip weapons, even though they can't use them to attack.
+ - Ideology Apparel: Buffs or tweaks many useless items to try give them a niche, rather than being strictly inferior or identical to a basegame item.
+ - Turret Adjustments: Makes turrets, especially Autocannons and Uranium Slug Turrets, a lot more powerful, but a lot more expensive to operate.
+ - Ideology Seating: Tweaks the beauty of Pews and Kneel Sheets to make them vaguely comparable with Kneel Pillows.
+ - Ideology Flooring: Makes steel flooring (Spikecore Plates and Hex Tiles) cleaner, but also more work-expensive.
+ - Drape Rendering Patch: Makes Drapes render  on the same layer as columns rather than rendering over the top of tall objects placed in front of them.
+ - Merge Pots: Removes Bonsai Pots from the game, but allows Bonsai Trees to be planted in Plant Pots (if Tree Sowing has been researched.)
+- Draw Infestation Numbers: when the Draw Infestation Chance debug option is selected, the beauty drawer draws infestation score instead of beauty.
+    </description>
+    <modDependencies>
+	  	<li>
+  			<packageId>brrainz.harmony</packageId>
+  			<displayName>Harmony</displayName>
+			<downloadUrl>https://github.com/pardeike/HarmonyRimWorld</downloadUrl>
+  		</li>
+    </modDependencies>
+    <loadAfter>
+  		<li>brrainz.harmony</li>
+     	<li>Ludeon.RimWorld.Ideology</li>
+      	<li>Ludeon.RimWorld.Royalty</li>
+    </loadAfter>
+</ModMetaData>
